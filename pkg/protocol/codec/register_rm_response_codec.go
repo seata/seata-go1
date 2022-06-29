@@ -29,19 +29,19 @@ type RegisterRMResponseCodec struct {
 	AbstractIdentifyResponseCodec
 }
 
-func (g *RegisterRMResponseCodec) Decode(in []byte) interface{} {
-	req := g.AbstractIdentifyResponseCodec.Decode(in)
+func (r *RegisterRMResponseCodec) Decode(in []byte) interface{} {
+	req := r.AbstractIdentifyResponseCodec.Decode(in)
 	abstractIdentifyResponse := req.(message.AbstractIdentifyResponse)
 	return message.RegisterRMResponse{
 		AbstractIdentifyResponse: abstractIdentifyResponse,
 	}
 }
 
-func (c *RegisterRMResponseCodec) Encode(in interface{}) []byte {
+func (r *RegisterRMResponseCodec) Encode(in interface{}) []byte {
 	resp := in.(message.RegisterRMResponse)
-	return c.AbstractIdentifyResponseCodec.Encode(resp.AbstractIdentifyResponse)
+	return r.AbstractIdentifyResponseCodec.Encode(resp.AbstractIdentifyResponse)
 }
 
-func (g *RegisterRMResponseCodec) GetMessageType() message.MessageType {
-	return message.MessageType_RegRmResult
+func (r *RegisterRMResponseCodec) GetMessageType() message.MessageType {
+	return message.MessageTypeRegRmResult
 }

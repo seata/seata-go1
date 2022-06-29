@@ -44,7 +44,7 @@ type BranchRegisterRequest struct {
 }
 
 func (req BranchRegisterRequest) GetTypeCode() MessageType {
-	return MessageType_BranchRegister
+	return MessageTypeBranchRegister
 }
 
 type BranchReportRequest struct {
@@ -57,7 +57,7 @@ type BranchReportRequest struct {
 }
 
 func (req BranchReportRequest) GetTypeCode() MessageType {
-	return MessageType_BranchStatusReport
+	return MessageTypeBranchStatusReport
 }
 
 type BranchCommitRequest struct {
@@ -65,7 +65,7 @@ type BranchCommitRequest struct {
 }
 
 func (req BranchCommitRequest) GetTypeCode() MessageType {
-	return MessageType_BranchCommit
+	return MessageTypeBranchCommit
 }
 
 type BranchRollbackRequest struct {
@@ -73,7 +73,7 @@ type BranchRollbackRequest struct {
 }
 
 func (req BranchRollbackRequest) GetTypeCode() MessageType {
-	return MessageType_BranchRollback
+	return MessageTypeBranchRollback
 }
 
 type GlobalBeginRequest struct {
@@ -82,7 +82,7 @@ type GlobalBeginRequest struct {
 }
 
 func (req GlobalBeginRequest) GetTypeCode() MessageType {
-	return MessageType_GlobalBegin
+	return MessageTypeGlobalBegin
 }
 
 type GlobalStatusRequest struct {
@@ -90,7 +90,7 @@ type GlobalStatusRequest struct {
 }
 
 func (req GlobalStatusRequest) GetTypeCode() MessageType {
-	return MessageType_GlobalStatus
+	return MessageTypeGlobalStatus
 }
 
 type GlobalLockQueryRequest struct {
@@ -98,7 +98,7 @@ type GlobalLockQueryRequest struct {
 }
 
 func (req GlobalLockQueryRequest) GetTypeCode() MessageType {
-	return MessageType_GlobalLockQuery
+	return MessageTypeGlobalLockQuery
 }
 
 type GlobalReportRequest struct {
@@ -108,7 +108,7 @@ type GlobalReportRequest struct {
 }
 
 func (req GlobalReportRequest) GetTypeCode() MessageType {
-	return MessageType_GlobalStatus
+	return MessageTypeGlobalStatus
 }
 
 type GlobalCommitRequest struct {
@@ -116,7 +116,7 @@ type GlobalCommitRequest struct {
 }
 
 func (req GlobalCommitRequest) GetTypeCode() MessageType {
-	return MessageType_GlobalCommit
+	return MessageTypeGlobalCommit
 }
 
 type GlobalRollbackRequest struct {
@@ -124,7 +124,7 @@ type GlobalRollbackRequest struct {
 }
 
 func (req GlobalRollbackRequest) GetTypeCode() MessageType {
-	return MessageType_GlobalRollback
+	return MessageTypeGlobalRollback
 }
 
 type UndoLogDeleteRequest struct {
@@ -134,7 +134,7 @@ type UndoLogDeleteRequest struct {
 }
 
 func (req UndoLogDeleteRequest) GetTypeCode() MessageType {
-	return MessageType_RmDeleteUndolog
+	return MessageTypeRmDeleteUndolog
 }
 
 type RegisterTMRequest struct {
@@ -142,7 +142,7 @@ type RegisterTMRequest struct {
 }
 
 func (req RegisterTMRequest) GetTypeCode() MessageType {
-	return MessageType_RegClt
+	return MessageTypeRegClt
 }
 
 type RegisterRMRequest struct {
@@ -151,7 +151,7 @@ type RegisterRMRequest struct {
 }
 
 func (req RegisterRMRequest) GetTypeCode() MessageType {
-	return MessageType_RegRm
+	return MessageTypeRegRm
 }
 
 type RegisterRMResponse struct {
@@ -159,5 +159,5 @@ type RegisterRMResponse struct {
 }
 
 func (resp RegisterRMResponse) GetTypeCode() MessageType {
-	return MessageType_RegRmResult
+	return MessageTypeRegRmResult
 }

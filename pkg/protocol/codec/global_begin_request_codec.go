@@ -50,5 +50,5 @@ func (g *GlobalBeginRequestCodec) Decode(in []byte) interface{} {
 }
 
 func (g *GlobalBeginRequestCodec) GetMessageType() message.MessageType {
-	return message.MessageType_GlobalBegin
+	return message.MessageTypeGlobalBegin
 }

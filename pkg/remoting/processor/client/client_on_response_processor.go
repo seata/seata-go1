@@ -28,18 +28,18 @@ import (
 
 func init() {
 	clientOnResponseProcessor := &clientOnResponseProcessor{}
-	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageType_SeataMergeResult, clientOnResponseProcessor)
-	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageType_BranchRegisterResult, clientOnResponseProcessor)
-	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageType_BranchStatusReportResult, clientOnResponseProcessor)
-	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageType_GlobalLockQueryResult, clientOnResponseProcessor)
-	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageType_RegRmResult, clientOnResponseProcessor)
-	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageType_GlobalBeginResult, clientOnResponseProcessor)
-	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageType_GlobalCommitResult, clientOnResponseProcessor)
+	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageTypeSeataMergeResult, clientOnResponseProcessor)
+	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageTypeBranchRegisterResult, clientOnResponseProcessor)
+	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageTypeBranchStatusReportResult, clientOnResponseProcessor)
+	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageTypeGlobalLockQueryResult, clientOnResponseProcessor)
+	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageTypeRegRmResult, clientOnResponseProcessor)
+	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageTypeGlobalBeginResult, clientOnResponseProcessor)
+	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageTypeGlobalCommitResult, clientOnResponseProcessor)
 
-	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageType_GlobalReportResult, clientOnResponseProcessor)
-	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageType_GlobalRollbackResult, clientOnResponseProcessor)
-	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageType_GlobalStatusResult, clientOnResponseProcessor)
-	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageType_RegCltResult, clientOnResponseProcessor)
+	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageTypeGlobalReportResult, clientOnResponseProcessor)
+	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageTypeGlobalRollbackResult, clientOnResponseProcessor)
+	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageTypeGlobalStatusResult, clientOnResponseProcessor)
+	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageTypeRegCltResult, clientOnResponseProcessor)
 }
 
 type clientOnResponseProcessor struct {
@@ -55,7 +55,7 @@ func (f *clientOnResponseProcessor) Process(ctx context.Context, rpcMessage mess
 				response := getty2.GetGettyRemotingInstance().GetMessageFuture(msgID)
 				if response != nil {
 					response.Response = mergedResult.Msgs[i]
-					response.Done <- true
+					response.Done <- struct{}{}
 					getty2.GetGettyRemotingInstance().RemoveMessageFuture(msgID)
 				}
 			}

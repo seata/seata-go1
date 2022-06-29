@@ -29,7 +29,7 @@ import (
 
 func init() {
 	rmBranchRollbackProcessor := &rmBranchRollbackProcessor{}
-	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageType_BranchRollback, rmBranchRollbackProcessor)
+	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageTypeBranchRollback, rmBranchRollbackProcessor)
 }
 
 type rmBranchRollbackProcessor struct {

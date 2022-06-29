@@ -29,7 +29,7 @@ import (
 
 func init() {
 	rmBranchCommitProcessor := &rmBranchCommitProcessor{}
-	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageType_BranchCommit, rmBranchCommitProcessor)
+	getty2.GetGettyClientHandlerInstance().RegisterProcessor(message.MessageTypeBranchCommit, rmBranchCommitProcessor)
 }
 
 type rmBranchCommitProcessor struct {
@@ -58,9 +58,9 @@ func (f *rmBranchCommitProcessor) Process(ctx context.Context, rpcMessage messag
 			BranchStatus: status,
 		},
 	}
-	err = getty2.GetGettyRemotingClient().SendAsyncResponse(response)
-	if err != nil {
-		log.Error("BranchCommitResponse error: {%#v}", err.Error())
+
+	if err = getty2.GetGettyRemotingClient().SendAsyncResponse(response); err != nil {
+		log.Errorf("BranchCommitResponse error: {%#v}", err.Error())
 		return err
 	}
 	return nil
