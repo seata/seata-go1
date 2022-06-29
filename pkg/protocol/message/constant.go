@@ -48,12 +48,12 @@ const (
 	MessageTypeGlobalLockQueryResult    MessageType = 22       // The constant TYPE_GLOBAL_LOCK_QUERY_RESULT.
 	MessageTypeSeataMerge               MessageType = 59       // The constant TYPE_SEATA_MERGE.
 	MessageTypeSeataMergeResult         MessageType = 60       // The constant TYPE_SEATA_MERGE_RESULT.
-	MessageTypeRegClt                   MessageType = 101      //  The constant TYPE_REG_CLT.
+	MessageTypeRegClt                   MessageType = 101      // The constant TYPE_REG_CLT.
 	MessageTypeRegCltResult             MessageType = 102      // The constant TYPE_REG_CLT_RESULT.
 	MessageTypeRegRm                    MessageType = 103      // The constant TYPE_REG_RM.
 	MessageTypeRegRmResult              MessageType = 104      // The constant TYPE_REG_RM_RESULT.
 	MessageTypeRmDeleteUndolog          MessageType = 111      // The constant TYPE_RM_DELETE_UNDOLOG.
-	MessageTypeHeartbeatMsg             MessageType = 120      // 	MessageType_HeartbeatMsg MessageType = 120 //
+	MessageTypeHeartbeatMsg             MessageType = 120      // The constant TYPE_HEARTBEAT_MSG
 
 )
 
@@ -74,19 +74,19 @@ const (
 )
 
 const (
-	GlobalStatusUnKnown                 GlobalStatus = iota //  Un known global status. Unknown
+	GlobalStatusUnKnown                 GlobalStatus = iota // Un known global status. Unknown
 	GlobalStatusBegin                                       // The GlobalStatusBegin. PHASE 1: can accept new branch registering.
 	GlobalStatusCommitting                                  // PHASE 2: Running Status: may be changed any time. Committing.
 	GlobalStatusCommitRetrying                              // The Commit retrying. Retrying commit after a recoverable failure.
 	GlobalStatusRollBacking                                 // Roll backing global status. Roll backing
-	GlobalStatusRollbackRetrying                            //  The Rollback retrying. Retrying rollback after a recoverable failure.
+	GlobalStatusRollbackRetrying                            // The Rollback retrying. Retrying rollback after a recoverable failure.
 	GlobalStatusTimeoutRollBacking                          // The Timeout roll backing. roll backing since timeout
 	GlobalStatusTimeoutRollbackRetrying                     // The Timeout rollback retrying. Retrying rollback  GlobalStatus = since timeout) after a recoverable failure.
 	GlobalStatusAsyncCommitting                             // All branches can be async committed. The committing is NOT done yet, but it can be seen as committed for TM/RM client.
 	GlobalStatusCommitted                                   // PHASE 2: Final Status: will NOT change any more. Finally: global transaction is successfully committed.
 	GlobalStatusCommitFailed                                // The Commit failed.  Finally: failed to commit
 	GlobalStatusRollBacked                                  // The roll backed. Finally: global transaction is successfully roll backed.
-	GlobalStatusRollbackFailed                              //  The Rollback failed. Finally: failed to rollback
+	GlobalStatusRollbackFailed                              // The Rollback failed. Finally: failed to rollback
 	GlobalStatusTimeoutRollBacked                           // The Timeout roll backed. Finally: global transaction is successfully roll backed since timeout.
 	GlobalStatusTimeoutRollbackFailed                       // The Timeout rollback failed. Finally: failed to rollback since timeout
 	GlobalStatusFinished                                    // The Finished. Not managed in session MAP any more
