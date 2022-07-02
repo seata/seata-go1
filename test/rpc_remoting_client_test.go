@@ -19,14 +19,7 @@ package test
 
 import (
 	"testing"
-
-	"github.com/seata/seata-go/pkg/imports"
 )
-
-func init() {
-	// display init server
-	imports.Init()
-}
 
 func TestSendMsgWithResponse(test *testing.T) {
 	//request := protocol.RegisterRMRequest{

@@ -26,16 +26,8 @@ import (
 
 	"github.com/seata/seata-go/pkg/common/log"
 
-	"github.com/seata/seata-go/pkg/imports"
-
 	"github.com/seata/seata-go/pkg/rm/tcc"
 )
-
-
-func init(){
-	// display init server
-	imports.Init()
-}
 
 type TestTCCServiceBusiness struct {
 }

@@ -15,9 +15,11 @@
  * limitations under the License.
  */
 
-package codec
+package test
 
-// Init is initialization of the current package
-func Init() {
-	GetCodecManager().RegisterCodec(CodecTypeSeata, &BranchCommitRequestCodec{})
+import "github.com/seata/seata-go/pkg/imports"
+
+func init() {
+	// display init server
+	imports.Init()
 }
