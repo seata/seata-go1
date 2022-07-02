@@ -37,7 +37,8 @@ type RpcClient struct {
 	futures      *sync.Map
 }
 
-func init() {
+// Init is initialization of the current package
+func Init() {
 	newRpcClient()
 }
 

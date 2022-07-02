@@ -53,7 +53,8 @@ func (t *TCCResource) GetBranchType() branch.BranchType {
 	return branch.BranchTypeTCC
 }
 
-func init() {
+// Init is initialization of the current package
+func Init() {
 	rm.GetResourceManagerInstance().RegisterResourceManager(GetTCCResourceManagerInstance())
 }
 

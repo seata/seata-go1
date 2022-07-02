@@ -15,32 +15,9 @@
  * limitations under the License.
  */
 
-package test
+package codec
 
-import (
-	"testing"
-
-	"github.com/seata/seata-go/pkg/imports"
-)
-
-func init() {
-	// display init server
-	imports.Init()
-}
-
-func TestSendMsgWithResponse(test *testing.T) {
-	//request := protocol.RegisterRMRequest{
-	//	ResourceIds: "1111",
-	//	AbstractIdentifyRequest: protocol.AbstractIdentifyRequest{
-	//		ApplicationId:           "ApplicationID",
-	//		TransactionServiceGroup: "TransactionServiceGroup",
-	//	},
-	//}
-	//mergedMessage := protocol.MergedWarpMessage{
-	//	Msgs:   []protocol.MessageTypeAware{request},
-	//	MsgIds: []int32{1212},
-	//}
-	//handler := GetGettyClientHandlerInstance()
-	//handler.sendMergedMessage(mergedMessage)
-	//time.Sleep(100000 * time.Second)
+// Init is initialization of the current package
+func Init() {
+	GetCodecManager().RegisterCodec(CodecTypeSeata, &BranchCommitRequestCodec{})
 }
