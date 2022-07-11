@@ -22,7 +22,6 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/seata/seata-go/pkg/protocol/resource"
 	"github.com/seata/seata-go/pkg/tm"
 
 	"github.com/seata/seata-go/pkg/protocol/branch"
@@ -90,12 +89,12 @@ func (t *TCCResourceManager) LockQuery(ctx context.Context, ranchType branch.Bra
 	panic("implement me")
 }
 
-func (t *TCCResourceManager) UnregisterResource(resource resource.Resource) error {
+func (t *TCCResourceManager) UnregisterResource(resource rm.Resource) error {
 	//TODO implement me
-	panic("implement me")
+	panic("not support yet exception")
 }
 
-func (t *TCCResourceManager) RegisterResource(resource resource.Resource) error {
+func (t *TCCResourceManager) RegisterResource(resource rm.Resource) error {
 	if _, ok := resource.(*TCCResource); !ok {
 		panic(fmt.Sprintf("register tcc resource error, TCCResource is needed, param %v", resource))
 	}
@@ -103,7 +102,7 @@ func (t *TCCResourceManager) RegisterResource(resource resource.Resource) error 
 	return t.rmRemoting.RegisterResource(resource)
 }
 
-func (t *TCCResourceManager) GetManagedResources() *sync.Map {
+func (t *TCCResourceManager) GetCachedResources() *sync.Map {
 	return &t.resourceManagerMap
 }
 
